@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="PixelStudio Pro — free, simple photo editing tools in your browser.">
+<meta name="theme-color" content="#10131b"><title>PixelStudio Pro — Photo Editor</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="#"><span class="logo">P</span> PixelStudio <small>PRO</small></a><div class="top-actions"><button id="undo" title="Undo">↶</button><button id="redo" title="Redo">↷</button><button class="primary" id="download">Export image</button></div></header>
+<main>
+<section class="intro"><div><p class="eyebrow">YOUR CREATIVE WORKSPACE</p><h1>Make every photo<br><span>look its best.</span></h1><p class="muted">Powerful editing tools with a simple interface. Your image stays in your browser.</p></div><label class="upload primary">＋ Upload photo<input id="file" type="file" accept="image/*"></label></section>
+<div class="workspace">
+<aside class="sidebar">
+<div class="tabs"><button class="tab active" data-tab="adjust">Adjust</button><button class="tab" data-tab="effects">Effects</button><button class="tab" data-tab="tools">Tools</button></div>
+<div class="panel active" id="adjust">
+<div class="group"><h3>Light & colour</h3>
+<div class="control"><label>Brightness <output id="brightnessVal">100</output></label><input id="brightness" type="range" min="0" max="200" value="100"></div>
+<div class="control"><label>Contrast <output id="contrastVal">100</output></label><input id="contrast" type="range" min="0" max="200" value="100"></div>
+<div class="control"><label>Saturation <output id="saturationVal">100</output></label><input id="saturation" type="range" min="0" max="200" value="100"></div>
+<div class="control"><label>Warmth <output id="warmthVal">0</output></label><input id="warmth" type="range" min="-100" max="100" value="0"></div>
+<div class="control"><label>Exposure <output id="exposureVal">0</output></label><input id="exposure" type="range" min="-100" max="100" value="0"></div></div>
+<div class="group"><h3>Colour mixer (HSL)</h3>
+<div class="control"><label>Hue <output id="hueVal">0°</output></label><input id="hue" type="range" min="-180" max="180" value="0"></div>
+<div class="control"><label>Vibrance <output id="vibranceVal">0</output></label><input id="vibrance" type="range" min="-100" max="100" value="0"></div></div>
+<div class="group"><h3>RGB channel balance</h3>
+<div class="control"><label>Red <output id="redVal">0</output></label><input id="red" type="range" min="-80" max="80" value="0"></div>
+<div class="control"><label>Green <output id="greenVal">0</output></label><input id="green" type="range" min="-80" max="80" value="0"></div>
+<div class="control"><label>Blue <output id="blueVal">0</output></label><input id="blue" type="range" min="-80" max="80" value="0"></div></div>
+</div>
+<div class="panel" id="effects">
+<div class="group"><h3>Creative effects</h3>
+<div class="control"><label>Blur <output id="blurVal">0</output></label><input id="blur" type="range" min="0" max="12" value="0"></div>
+<div class="control"><label>Vignette <output id="vignetteVal">0</output></label><input id="vignette" type="range" min="0" max="100" value="0"></div>
+<div class="control"><label>Grain <output id="grainVal">0</output></label><input id="grain" type="range" min="0" max="60" value="0"></div>
+<div class="control"><label>Sharpen <output id="sharpenVal">0</output></label><input id="sharpen" type="range" min="0" max="100" value="0"></div></div>
+<div class="group"><h3>Quick presets</h3><div class="preset-grid"><button data-preset="original">Original</button><button data-preset="vivid">Vivid</button><button data-preset="warm">Warm</button><button data-preset="mono">B&W</button><button data-preset="fade">Fade</button><button data-preset="cinema">Cinema</button></div></div>
+</div>
+<div class="panel" id="tools">
+<div class="group"><h3>Transform</h3><div class="tool-grid"><button id="rotate">↻ Rotate</button><button id="flip">⇋ Flip</button><button id="reset">Reset edits</button></div></div>
+<div class="group"><h3>Add text layer</h3><input id="textInput" class="text-input" placeholder="Type something…"><div class="control"><label>Text size <output id="textSizeVal">42</output></label><input id="textSize" type="range" min="12" max="120" value="42"></div><input id="textColor" type="color" value="#ffffff"><button id="addText" class="wide">＋ Add text to image</button><p class="hint">Text is added to the centre. Export to include it.</p></div>
+<div class="group"><h3>Export settings</h3><label class="select-label">Format<select id="format"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select></label><div class="control"><label>Quality <output id="qualityVal">92%</output></label><input id="quality" type="range" min="50" max="100" value="92"></div></div>
+</div>
+</aside>
+<section class="canvas-area"><div class="canvas-toolbar"><span id="imageInfo">No image loaded</span><div><button id="compare">Hold to compare</button><button id="fit">Fit</button></div></div>
+<div class="stage" id="stage"><div class="empty-state"><div class="empty-icon">▧</div><h2>Your canvas is ready</h2><p>Upload a photo to start editing.</p><label class="upload primary">Choose photo<input id="file2" type="file" accept="image/*"></label></div><canvas id="canvas"></canvas></div>
+<div class="bottom-note">🔒 Your photo is processed locally in this browser. It is not uploaded by the basic editing tools.</div></section>
+</div>
+</main>
+<footer>PixelStudio Pro · Free browser-based editing · AI tools are not enabled in this starter version.</footer>
+<script src="app.js"></script>
+</body></html>
